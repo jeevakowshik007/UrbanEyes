@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanEyes24 - AI Analysis</title>
+    <link rel="stylesheet" href="static/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    
+    <div class="glass-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-city"></i>
+                <h1>UrbanEyes<span>24</span></h1>
+            </div>
+            <p class="subtitle">Next-Gen Urban Infrastructure Analysis</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-cloud-arrow-up"></i> Upload Media</h2>
+                    <p class="description">Detect Potholes, Broken Lights, Garbage & Drainage Issues</p>
+                </div>
+                
+                <div class="upload-grid">
+                    <!-- Video Upload -->
+                    <div class="upload-card">
+                        <h3>Video Analysis</h3>
+                        <form id="videoForm" enctype="multipart/form-data">
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="videoFile" name="video" accept="video/*">
+                                <label for="videoFile" class="file-label" id="videoLabel">
+                                    <div class="icon-circle">
+                                        <i class="fa-solid fa-video"></i>
+                                    </div>
+                                    <span class="file-text">Select Video</span>
+                                    <span class="file-subtext">MP4, AVI, MOV</span>
+                                </label>
+                            </div>
+                            <div class="preview-container" id="videoPreview" style="display: none;">
+                                <video id="previewVideo" controls></video>
+                                <div class="file-info">
+                                    <i class="fa-solid fa-film"></i>
+                                    <span id="videoFileName">filename.mp4</span>
+                                    <button type="button" class="remove-btn" onclick="clearPreview('video')"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Image Upload -->
+                    <div class="upload-card">
+                        <h3>Image Analysis</h3>
+                        <form id="imageForm" enctype="multipart/form-data">
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="imageFile" name="image" accept="image/*">
+                                <label for="imageFile" class="file-label" id="imageLabel">
+                                    <div class="icon-circle">
+                                        <i class="fa-solid fa-image"></i>
+                                    </div>
+                                    <span class="file-text">Select Image</span>
+                                    <span class="file-subtext">JPG, PNG, WEBP</span>
+                                </label>
+                            </div>
+                            <div class="preview-container" id="imagePreview" style="display: none;">
+                                <img id="previewImage" alt="Preview">
+                                <div class="file-info">
+                                    <i class="fa-solid fa-photo-film"></i>
+                                    <span id="imageFileName">filename.jpg</span>
+                                    <button type="button" class="remove-btn" onclick="clearPreview('image')"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <button type="button" class="analyze-btn" id="submitBtn">
+                    <span class="btn-content">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Run Analysis
+                    </span>
+                    <span class="btn-loader" style="display: none;">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i> Processing...
+                    </span>
+                </button>
+
+                <!-- Loading Overlay (Modern) -->
+                <div class="loading-overlay" id="loading" style="display: none;">
+                    <div class="loader-content">
+                        <div class="modern-spinner"></div>
+                        <p>Analyzing Urban Data...</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-container" id="results" style="display: none;">
+                    <div class="results-header">
+                        <h3><i class="fa-solid fa-square-poll-vertical"></i> Analysis Report</h3>
+                        <span class="badge-status">Completed</span>
+                    </div>
+                    <div id="resultsContent" class="results-grid">
+                        <!-- Results injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 UrbanEyes24 | Powered by YOLOv8 & OpenCV</p>
+        </footer>
+    </div>
+
+    <script src="static/starfield.js"></script>
+    <script src="static/script.js"></script>
+</body>
+</html>

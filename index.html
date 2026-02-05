@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanEyes24 - Video Analysis</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <div class="container">
+        <header>
+            <h1>UrbanEyes24</h1>
+            <p class="subtitle">AI-Powered Urban Infrastructure Analysis</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <h2>Upload for Analysis</h2>
+                <p class="description">Upload a video or image to detect: Potholes, Broken Streetlights, Illegal Garbage Dumping, and Drainage Issues</p>
+                
+                <!-- Video Upload Section -->
+                <div class="upload-option">
+                    <h3>Video Upload</h3>
+                    <form id="videoForm" enctype="multipart/form-data">
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="videoFile" name="video" accept="video/*">
+                            <label for="videoFile" class="file-label">
+                                <span class="file-icon">📹</span>
+                                <span class="file-text">Choose Video File</span>
+                            </label>
+                        </div>
+                        
+                        <div class="video-preview" id="videoPreview" style="display: none;">
+                            <video id="previewVideo" controls></video>
+                            <p class="file-name" id="videoFileName"></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Image Upload Section -->
+                <div class="upload-option">
+                    <h3>Image Upload</h3>
+                    <form id="imageForm" enctype="multipart/form-data">
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="imageFile" name="image" accept="image/*">
+                            <label for="imageFile" class="file-label">
+                                <span class="file-icon">🖼️</span>
+                                <span class="file-text">Choose Image File</span>
+                            </label>
+                        </div>
+                        
+                        <div class="image-preview" id="imagePreview" style="display: none;">
+                            <img id="previewImage" alt="Preview">
+                            <p class="file-name" id="imageFileName"></p>
+                        </div>
+                    </form>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Analyze File</span>
+                    <span class="btn-loader" style="display: none;">⏳ Analyzing...</span>
+                </button>
+
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Processing file... This may take a few moments.</p>
+                </div>
+
+                <div class="results" id="results" style="display: none;">
+                    <h3>Analysis Results</h3>
+                    <div id="resultsContent"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 UrbanEyes24. Detecting urban issues with AI.</p>
+        </footer>
+    </div>
+
+    <script src="static/starfield.js"></script>
+    <script src="static/script.js"></script>
+</body>
+</html>
